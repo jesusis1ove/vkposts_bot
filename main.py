@@ -5,7 +5,7 @@ from vkposts_bot.tg_manager import TelegramManager
 from vkposts_bot.vk_manager import VkManager
 from vkposts_bot.utils import get_last_success_request
 
-from config import VK_ACCESS_TOKEN, OWNERS_ID, COUNTER_PER_REQ, TAGS, \
+from config import VK_ACCESS_TOKEN, VK_LOGIN, VK_PASSWORD, OWNERS_ID, COUNTER_PER_REQ, TAGS, \
     POST_HTML_TEMPLATE, ATTACHMENTS, MAIN_TIMEOUT, TG_TOKEN, CHANNEL_ID, TG_REQUEST_TIMEOUT
 
 
@@ -15,8 +15,7 @@ logging.basicConfig(filename='app.log',
 
 
 def start():
-    logging.info('start')
-    vk = VkManager(VK_ACCESS_TOKEN, OWNERS_ID, COUNTER_PER_REQ)
+    vk = VkManager(VK_ACCESS_TOKEN, VK_LOGIN, VK_PASSWORD, OWNERS_ID, COUNTER_PER_REQ)
     tg = TelegramManager(TG_TOKEN, CHANNEL_ID, TG_REQUEST_TIMEOUT) # нахуя tg req timeout
     while True:
         last_success_request = get_last_success_request()

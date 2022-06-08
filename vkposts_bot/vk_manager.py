@@ -7,10 +7,14 @@ from .utils import write_last_success_request
 
 
 class VkManager:
-    def __init__(self, vk_access_token, owners_id, counter_per_req):
+    def __init__(self, vk_access_token, vk_login, vk_password, owners_id, counter_per_req):
         self.owners_id = owners_id
         self.counter_per_req = counter_per_req
-        self.vk_session = vk_api.VkApi(token=vk_access_token)
+        if vk_access_token != '':
+            self.vk_session = vk_api.VkApi(token=vk_access_token)
+        else:
+            self.vk_session = vk_api.VkApi(login=vk_login, password=vk_password)
+            self.vk_session.auth()
 
     def _get_latest_posts(self):
         vk = self.vk_session.get_api()
