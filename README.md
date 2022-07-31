@@ -1,5 +1,5 @@
 ## vkposts bot
-tg.me/oneplacemarket 
+https://t.me/oneplacemarket 
 
 Забирает публикации из сообществ vk.com в телеграм канал по заданному шаблону
 ### Requirements
